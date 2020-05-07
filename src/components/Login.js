@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import fire from '../config/fire'
 import useFormInput from '../utils/useFormInput'
+import { useHistory } from 'react-router-dom'
 
 const Login = () => {
     const [error, setError] = useState(null)
     const [isLogin, setIsLogin] = useState(true)
     const emailOnChange = useFormInput('')
     const passwordOnChange = useFormInput('')
+    const history = useHistory()
 
     const loginForm = e => {
         e.preventDefault()
         fire.auth()
             .signInWithEmailAndPassword(emailOnChange.val, passwordOnChange.val)
+            .then(() => history.push('/'))
             .catch(error => setError(error.message))
     }
 
@@ -19,6 +22,7 @@ const Login = () => {
         e.preventDefault()
         fire.auth()
             .createUserWithEmailAndPassword(emailOnChange.val, passwordOnChange.val)
+            .then(() => history.push('/verify'))
             .catch(error => setError(error.message))
     }
 

@@ -1,0 +1,36 @@
+.shop-topbar {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: white;
+}
+
+.shop-container {
+    position: relative;
+    display: flex;
+    margin-top: 3rem;
+}
+
+.shop-sidebar {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    padding: 1rem;
+    background-color: white;
+}
+
+.shop-main {
+    width: 100%;
+    padding: 1rem;
+}
+
+.shop-main-ads {
+    width: 100%;
+    height: 20rem;
+    background-color: gray;
+}

@@ -1,9 +1,16 @@
 import React, { useEffect } from 'react'
 import fire from '../config/fire'
+import { useHistory } from 'react-router-dom'
 
 const Verify = () => {
-
-    const sendVerifictaion = () => fire.auth().currentUser.sendEmailVerification()
+    const history = useHistory()
+    const sendVerifictaion = () => fire.auth().currentUser?.sendEmailVerification()
+    const isVerified = fire.auth().currentUser?.emailVerified
+    
+console.log({ isVerified })
+    if (isVerified) {
+        history.push('/')
+    }
 
     useEffect(() => {
         sendVerifictaion()

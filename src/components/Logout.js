@@ -1,7 +1,7 @@
 import React from 'react'
 import fire from '../config/fire'
 
-const Signout = () => {
+const Logout = () => {
     const logout = () => {
         fire.auth().signOut()
     }
@@ -9,4 +9,4 @@ const Signout = () => {
     return <button onClick={logout}>log out</button>
 }
 
-export default Signout
+export default Logout

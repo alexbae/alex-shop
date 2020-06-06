@@ -1,0 +1,10 @@
+.card-search-list {
+    cursor: pointer;
+    background-color: lightgray;
+    padding: 0.5rem;
+    border-bottom: 1px solid white;
+}
+
+.card-search-best {
+    color: red;
+}

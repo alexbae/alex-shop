@@ -42,17 +42,17 @@ const Login = () => {
                     </h1>
                     {isLogin ? (
                         <form className="login-form">
+                            {error && <div className="error-message">Email or Password is incorrect</div>}
                             <input type="email" placeholder="email" onChange={emailOnChange.onChange} />
                             <input type="password" placeholder="password" onChange={passwordOnChange.onChange} />
                             <button type="submit" onClick={loginForm}>Log In</button>
-                            {error && <p>Email or Password is incorrect</p>}
                         </form>
                     ) : (
                         <form className="login-form">
+                            {error && <div className="error-message">Something is wrong, please try again</div>}
                             <input type="email" placeholder="email" onChange={emailOnChange.onChange} />
                             <input type="password" placeholder="password" onChange={passwordOnChange.onChange} />
                             <button type="submit" onClick={signupForm}>Sign Up</button>
-                            {error && <p>Something is wrong, please try again</p>}
                         </form>
                     )}
                     <div className="link-bottom">

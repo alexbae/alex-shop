@@ -1,24 +1,15 @@
 import React from 'react'
-import fire from '../config/fire'
 import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
 
 const User = ({ user }) => {
-    const history = useHistory()
-
-    const logout = () => {
-        fire.auth().signOut()
-        history.push('/login')
-    }
-
     return (
-        user
-            ? (
-                <div>
-                    <Link to='/settings'>{user.email}</Link>
-                    <button className="logout-button" onClick={logout}>log out</button>
-                </div>
-            ) : <Link to='/login'>Login / Signup</Link>
+        user && (
+            
+                <Link to='/settings' className="setting-button">
+                    <img className="gear-icon" src="https://img.icons8.com/material-rounded/24/000000/settings.png"/>
+                </Link>
+            
+        )
     )
 }
 

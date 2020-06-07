@@ -1,5 +1,5 @@
 .login-wrapper {
-    min-height: 100vh;
+    min-height: 90vh;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -27,7 +27,7 @@
 }
 
 .login-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
     margin: 1rem 0 2rem;
     text-align: center;
@@ -40,16 +40,22 @@
 
 .link-button {
     margin: 0;
-    padding: 0;
+    padding: 0.5rem 0;
     border: 0;
     background-color: transparent;
-    color: #009933;
+    color: #ff6600;
     outline: none;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.link-button:active {
+    text-decoration: none;
 }
 
 .login-form input {
     font-size: 1rem;
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -61,10 +67,17 @@
 
 .login-form button {
     padding: 1rem;
-    background-color: #00802b;
+    background-color: #ff6600;
     border: 0;
     border-radius: 4px;
     color: white;
     font-size: 1rem;
     font-weight: bold;
+}
+
+.error-message {
+    background-color: #fff0e6;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
 }

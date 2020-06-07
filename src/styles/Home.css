@@ -7,13 +7,33 @@
     left: 0;
     width: 100%;
     z-index: 100;
-    background-color: white;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ccc;
 }
 
 .shop-container {
     position: relative;
     display: flex;
     margin-top: 3rem;
+    background-color: white;
+}
+
+.logo {
+    width: 2.5rem;
+    height: 1.5rem;
+    background-color: #ff6600;
+    display: inline-block;
+    vertical-align: bottom;
+    border-radius: 3px;
+}
+
+.logo::before {
+    content: 'BENE';
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+    margin-left: -1px;
 }
 
 .shop-main {
@@ -21,12 +41,16 @@
     padding: 1rem;
 }
 
-.logout-button {
-    margin-left: 1rem;
-}
-
 .benefit-cards {
     margin-top: 2rem;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.gear-icon {
+    vertical-align: bottom;
 }
 
 .benefit-cards-wrapper {

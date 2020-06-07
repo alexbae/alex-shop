@@ -4,7 +4,9 @@ const searchCards = (cards, word) => {
     cards.map(card => {
       if (card.indexOf(word) > -1) {
         cardArray.push(card)
-      }    
+      }
+
+      return cardArray
     })
     
     return cardArray
@@ -49,12 +51,12 @@ const removeMatches = (bestArray, simArray) => {
 }
   
 export const selectedCollection = (cards, words) => {
-    if (!words[1] && words[0].length < 4) {
+    if (!words[1] && words[0].length < 3) {
         return {}
     }
 
-    const matchedCards = searchName(cards, words)
-    const similarCards = removeDuplications(searchWord(cards, words))
+    const matchedCards = searchName(cards, words).slice(0, 5)
+    const similarCards = removeDuplications(searchWord(cards, words)).slice(0, 10)
     
     return {
       best: matchedCards, 

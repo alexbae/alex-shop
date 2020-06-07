@@ -22,6 +22,12 @@ const CardSearch = ({ addCards }) => {
     const inputChange = e => {
         setValue(e.target.value)
     }
+
+    const searchBlur = () => {
+        setTimeout(() => {
+            setValue('')
+        }, 300)
+    }
     
     const collectionArray = Object.keys(collection).map(card => card.toLowerCase())
 
@@ -31,19 +37,22 @@ const CardSearch = ({ addCards }) => {
 
     return (
         <div>
-            <input onChange={inputChange} />
-            <ul>
-                {best && best.map((card, key) => (
-                    <li onClick={() => addCards(card)} className='card-search-best card-search-list' key={`best-${key}`}>
-                        {card}
-                    </li>
-                ))}
-                {similar && similar.map((card, key) => (
-                    <li onClick={() => addCards(card)} className='card-search-list' key={`similar-${key}`}>
-                        {card}
-                    </li>
-                ))}
-            </ul>
+            <p className="card-search-bar-label">Search your cards</p>
+            <div className="card-search-bar-wrap">
+                <input className="card-search-bar" onChange={inputChange} onBlur={searchBlur} value={value} />
+                <ul className="search-list-wrap">
+                    {best && best.map((card, key) => (
+                        <li onClick={() => addCards(card)} className='card-search-best card-search-list' key={`best-${key}`}>
+                            {card}
+                        </li>
+                    ))}
+                    {similar && similar.map((card, key) => (
+                        <li onClick={() => addCards(card)} className='card-search-list' key={`similar-${key}`}>
+                            {card}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }

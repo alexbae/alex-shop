@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './styles/Main.css'
-import Main from './pages/Home'
+import Home from './pages/Home'
 import Login from './pages/Login'
+import MyCards from './pages/MyCards'
 import { UserContext } from './context/userContext'
 
 import { 
@@ -24,8 +25,9 @@ function App() {
 		<UserContext.Provider value={user}>
 			<Router>
 				<Switch>
-					<Route path={'/login'} component={Login} />
-					<Route path={'/'} component={Main} />
+					<Route exact path={'/'} component={Home} />
+					<Route exact path={'/settings'} component={MyCards} />
+					<Route exact path={'/login'} component={Login} />
 				</Switch>
 			</Router>
 		</UserContext.Provider>

@@ -15,7 +15,7 @@ const User = ({ user }) => {
         user
             ? (
                 <div>
-                    {user.email}
+                    <Link to='/settings'>{user.email}</Link>
                     <button className="logout-button" onClick={logout}>log out</button>
                 </div>
             ) : <Link to='/login'>Login / Signup</Link>

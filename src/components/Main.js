@@ -2,11 +2,9 @@ import React from 'react'
 
 import '../styles/Home.css'
 
-import CardSearch from './CardSearch'
 import User from './User'
-import MyCardList from './MyCardList'
 
-const Home = ({ user }) => (
+const Main = ({ user, children }) => (
     <div>
         <header className="shop-topbar">
             <div>
@@ -16,11 +14,10 @@ const Home = ({ user }) => (
         </header>
         <div className="shop-container">
             <main className="shop-main">
-                {/* <CardSearch /> */}
-                <MyCardList user={user} />
+                {children}
             </main>
         </div>
     </div>
 )
 
-export default Home
+export default Main

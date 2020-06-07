@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { db } from '../config/fire'
 import CardSearch from './CardSearch'
 
+import '../styles/MyCardList.css'
+
 const MyCardList = ({ user }) => {
     const [cards, setCards] = useState([])
 
@@ -42,19 +44,22 @@ const MyCardList = ({ user }) => {
 
     return (
         <div>
-            <ul>
-                {cards && cards.map((card, idx) => (
-                    <li key={idx}>
-                        {card}
-                        <button onClick={(e) => removeCard(e, card)}>remove</button>
-                    </li>
-                ))}
-            </ul>
-            <form>
-                {/* <input type='text' name="card" onChange={cardInput} /> */}
-                {/* <button onClick={addCards} type="submit">add</button> */}
-                <CardSearch addCards={addCards} />
-            </form>
+            <CardSearch addCards={addCards} />
+            { cards ? (
+                <div>
+                    <p>Your cards</p>
+                    <ul>
+                        {cards.map((card, idx) => (
+                            <li className='card-list' key={idx}>
+                                {card}
+                                <button className='remove-button' onClick={(e) => removeCard(e, card)}>remove</button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ) : (
+                <p>Add your cards</p>
+            )}
         </div>
     )
 }

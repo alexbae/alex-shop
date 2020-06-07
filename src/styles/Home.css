@@ -24,3 +24,39 @@
 .logout-button {
     margin-left: 1rem;
 }
+
+.benefit-cards {
+    margin-top: 2rem;
+}
+
+.benefit-cards-wrapper {
+    padding: 1rem;
+}
+
+.card-name {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.card-each-box {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid gray;
+    margin-bottom: 1rem;
+}
+
+.benefit-card-list {
+    margin-top: 1rem;
+}
+
+.benefit-card-list p {
+    margin-top: 0.5rem;
+}
+
+.card-value {
+    font-weight: bold;
+}
+
+.card-desc {
+    color: gray;
+}

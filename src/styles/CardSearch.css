@@ -8,3 +8,24 @@
 .card-search-best {
     color: red;
 }
+
+.card-search-bar-label {
+    margin-bottom: 0.5rem;
+}
+
+.card-search-bar-wrap {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.search-list-wrap {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+}
+
+.card-search-bar {
+    line-height: 1rem;
+    padding: 0.3rem;
+    font-size: 1rem;
+}

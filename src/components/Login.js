@@ -3,6 +3,8 @@ import fire from '../config/fire'
 import useFormInput from '../utils/useFormInput'
 import { useHistory } from 'react-router-dom'
 
+import '../styles/Login.css'
+
 const Login = () => {
     const [error, setError] = useState(null)
     const [isLogin, setIsLogin] = useState(true)
@@ -22,30 +24,42 @@ const Login = () => {
         e.preventDefault()
         fire.auth()
             .createUserWithEmailAndPassword(emailOnChange.val, passwordOnChange.val)
-            .then(() => history.push('/verify'))
+            .then(() => history.push('/'))
             .catch(error => setError(error.message))
     }
 
     const toggleLogin = () => setIsLogin(!isLogin)
 
     return (
-        <div>
-            <button onClick={toggleLogin}>{isLogin ? 'Create an account' : 'login with existing account'}</button>
-            {isLogin ? (
-                <form>
-                    <input type="email" placeholder="email" onChange={emailOnChange.onChange} />
-                    <input type="password" placeholder="password" onChange={passwordOnChange.onChange} />
-                    <button type="submit" onClick={loginForm}>Log in</button>
-                    {error && <p>{error}</p>}
-                </form>
-            ) : (
-                <form>
-                    <input type="email" placeholder="email" onChange={emailOnChange.onChange} />
-                    <input type="password" placeholder="password" onChange={passwordOnChange.onChange} />
-                    <button type="submit" onClick={signupForm}>Sign up</button>
-                    {error && <p>{error}</p>}
-                </form>
-            )}
+        <div className="login-wrapper">
+            <div className="login-inner">
+                <div className="login-card">
+                    <h1 className="login-title">
+                        {isLogin 
+                            ? 'Log In to your account'
+                            : 'Create your account'
+                        }
+                    </h1>
+                    {isLogin ? (
+                        <form className="login-form">
+                            <input type="email" placeholder="email" onChange={emailOnChange.onChange} />
+                            <input type="password" placeholder="password" onChange={passwordOnChange.onChange} />
+                            <button type="submit" onClick={loginForm}>Log In</button>
+                            {error && <p>Email or Password is incorrect</p>}
+                        </form>
+                    ) : (
+                        <form className="login-form">
+                            <input type="email" placeholder="email" onChange={emailOnChange.onChange} />
+                            <input type="password" placeholder="password" onChange={passwordOnChange.onChange} />
+                            <button type="submit" onClick={signupForm}>Sign Up</button>
+                            {error && <p>Something is wrong, please try again</p>}
+                        </form>
+                    )}
+                    <div className="link-bottom">
+                        <button className="link-button" onClick={toggleLogin}>{isLogin ? 'Create an account' : 'Login with existing account'}</button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

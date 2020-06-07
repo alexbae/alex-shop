@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { UserContext } from '../context/userContext'
+import { useHistory } from 'react-router-dom'
 
 import Main from '../components/Main'
 import { db } from '../config/fire'
@@ -11,6 +12,7 @@ const Home = () => {
     const [result, setResult] = useState([])
     const [searchValue, setSearchValue] = useState('')
     const myCardCollection = []
+    const history = useHistory()
 
     const user = useContext(UserContext)
 
@@ -25,8 +27,10 @@ const Home = () => {
                     }
                 })
                 .catch(err => console.log('error', err))
+        } else {
+            history.push('/login')
         }
-    }, [user])
+    }, [user, history])
 
     if (cards.length > 0) {
         cards.map(card => (

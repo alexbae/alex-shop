@@ -44,9 +44,10 @@ const Home = () => {
     }
 
     const searchBy = value => {
-        const resultCards = myCardCollection.filter(card =>
-            card.benefits.indexOf(value) > -1
-        )
+        const resultCards = myCardCollection.filter(card => {
+            if (!card.benefits) return
+            return card.benefits.indexOf(value) > -1
+        })
 
         setSearchValue(value)
         setResult(resultCards)
@@ -55,26 +56,34 @@ const Home = () => {
     return (
         <Main user={user}>
             <SearchByCategory searchBy={(category) => searchBy(category)} selected={searchValue} />
-            <div className="benefit-cards">
-                <p>Benefits from your cards: {searchValue}</p>
-                <div className="benefit-cards-wrapper">
-                    {result.map((card, idx) => {
-                        return (
-                            <div className="card-each-box" key={idx}>
-                                <p className="card-name">{card.name}</p>
-                                <ul>
-                                    {card[searchValue].map((obj, idx) => (
-                                        <li className="benefit-card-list" key={idx}>
-                                            <p className="card-value">{obj.value}</p>
-                                            {obj.detail && <p>{obj.detail}</p>}
-                                            {obj.desc && <p className="card-desc">{obj.desc}</p>}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )
-                    })}
-                </div>
+            <div className="benefit-cards-wrapper">
+                {result.map((card, idx) => {
+                    return (
+                        <div className="card-each-box" key={idx}>
+                            <a 
+                                className="card-name"
+                                target="_blank"
+                                href={card.website}
+                            >
+                                {card.name}
+                            </a>
+                            <ul>
+                                {card[searchValue].map((obj, idx) => (
+                                    <li className="benefit-card-list" key={idx}>
+                                        <a 
+                                            className="card-value"
+                                            target="_blank"
+                                            href={card.website}
+                                        >
+                                            {obj.value}
+                                        </a>
+                                        <span className="card-desc">{obj.desc && obj.desc}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )
+                })}
             </div>
         </Main>
     )

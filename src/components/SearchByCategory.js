@@ -4,6 +4,7 @@ const categories = [
     'travel',
     'dining',
     'groceries',
+    'auto-rental',
     'gas',
     'shopping',
     'entertainment',

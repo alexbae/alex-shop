@@ -23,12 +23,15 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+html, body {
+	-webkit-font-smoothing: antialiased;
+}
 html {
     box-sizing: border-box;
 }
 body {
 	line-height: 1;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-family: 'Roboto';
 	color: #4d4d4d;
 	background-color: #fafafa;
 }

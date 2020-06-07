@@ -43,7 +43,8 @@ const MyCardList = ({ user }) => {
     }
 
     return (
-        <div>
+        <div className="settings-wrapper">
+            <CardSearch addCards={addCards} />
             <div>
                 { cards.length > 0 ? (
                     <div>
@@ -61,7 +62,6 @@ const MyCardList = ({ user }) => {
                     <p className="error-message">Please add your cards</p>
                 )}
             </div>
-            <CardSearch addCards={addCards} />
         </div>
     )
 }

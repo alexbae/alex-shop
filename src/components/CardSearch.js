@@ -44,18 +44,20 @@ const CardSearch = ({ addCards }) => {
                     value={value} 
                     placeholder='Search your cards'
                 />
-                <ul className="search-list-wrap">
-                    {best && best.map((card, key) => (
-                        <li onClick={() => addCards(card)} className='card-search-list' key={`best-${key}`}>
-                            {card}
-                        </li>
-                    ))}
-                    {similar && similar.map((card, key) => (
-                        <li onClick={() => addCards(card)} className='card-search-similar card-search-list' key={`similar-${key}`}>
-                            {card}
-                        </li>
-                    ))}
-                </ul>
+                {(best || similar) && (
+                    <ul className="search-list-wrap">
+                        {best && best.map((card, key) => (
+                            <li onClick={() => addCards(card)} className='card-search-list' key={`best-${key}`}>
+                                {card}
+                            </li>
+                        ))}
+                        {similar && similar.map((card, key) => (
+                            <li onClick={() => addCards(card)} className='card-search-similar card-search-list' key={`similar-${key}`}>
+                                {card}
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         </div>
     )

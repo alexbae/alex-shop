@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom'
 const Main = ({ user, children }) => (
     <div>
         <header className="shop-topbar">
-            <Link to={'/'} className="inline-block">
-                <span className="logo"></span>
+            <Link to={'/'} className="logo">
+                BENEF
             </Link>
             <User user={user} />
         </header>

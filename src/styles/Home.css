@@ -19,21 +19,11 @@
 }
 
 .logo {
-    width: 2.5rem;
-    height: 1.5rem;
-    background-color: #ff6600;
-    display: inline-block;
-    vertical-align: bottom;
-    border-radius: 3px;
-}
-
-.logo::before {
-    content: 'BENE';
-    color: white;
-    font-size: 0.8rem;
     font-weight: bold;
-    line-height: 1.5rem;
-    margin-left: -1px;
+    text-decoration: none;
+    font-family: sans-serif;
+    color: #ff6600;
+    font-size: 1.4rem;
 }
 
 .shop-main {
@@ -95,7 +85,6 @@
     color: white;
     font-size: 1rem;
     font-weight: bold;
-    width: 100%;
-    margin-top: 20rem;
-    margin-bottom: 5rem;
+    width: calc(100% - 2rem);
+    margin: 5rem 1rem;
 }

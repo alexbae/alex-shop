@@ -5,6 +5,7 @@ import Main from '../components/Main'
 import { db } from '../config/fire'
 
 import '../styles/Home.css'
+import SearchByCategory from '../components/SearchByCategory'
 
 const Home = () => {
     const [cards, setCards] = useState([])
@@ -42,7 +43,7 @@ const Home = () => {
         ))
     }
 
-    const searchValueInArray = value => {
+    const searchBy = value => {
         const resultCards = myCardCollection.filter(card =>
             card.benefits.indexOf(value) > -1
         )
@@ -53,14 +54,7 @@ const Home = () => {
 
     return (
         <Main user={user}>
-            <div>
-                <button onClick={() => searchValueInArray('travel')}>Travel</button>
-                <button onClick={() => searchValueInArray('dining')}>Dining</button>
-                <button onClick={() => searchValueInArray('groceries')}>Groceries</button>
-                <button onClick={() => searchValueInArray('shopping')}>Shopping</button>
-                <button onClick={() => searchValueInArray('gas')}>Gas</button>
-                <button onClick={() => searchValueInArray('entertainment')}>Entertainment</button>
-            </div>
+            <SearchByCategory searchBy={(category) => searchBy(category)} selected={searchValue} />
             <div className="benefit-cards">
                 <p>Benefits from your cards: {searchValue}</p>
                 <div className="benefit-cards-wrapper">

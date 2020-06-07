@@ -1,16 +1,18 @@
+.header {
+    font-size: 1.2rem;
+}
+
 .card-search-list {
     cursor: pointer;
-    background-color: lightgray;
-    padding: 0.5rem;
-    border-bottom: 1px solid white;
+    padding: 1rem;
 }
 
-.card-search-best {
-    color: red;
+.card-search-list:last-child {
+    border-bottom: 0;
 }
 
-.card-search-bar-label {
-    margin-bottom: 0.5rem;
+.card-search-similar {
+    color: #9a9a9a;
 }
 
 .card-search-bar-wrap {
@@ -20,12 +22,26 @@
 
 .search-list-wrap {
     position: absolute;
-    top: 2rem;
+    background-color: white;
+    top: 3.7rem;
     left: 0;
+    width: 100%;
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    border-radius: 4px;
+    max-height: 15rem;
+    overflow: auto;
 }
 
 .card-search-bar {
-    line-height: 1rem;
-    padding: 0.3rem;
     font-size: 1rem;
+    padding: 0.75rem;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline-color: #ccc;
+    width: 100%;
+}
+
+.card-search-bar::placeholder {
+    color: #ccc;
 }

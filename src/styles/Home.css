@@ -15,7 +15,7 @@
     position: relative;
     display: flex;
     margin-top: 3rem;
-    background-color: white;
+    background-color: #fafafa;
 }
 
 .logo {
@@ -38,7 +38,7 @@
 
 .shop-main {
     width: 100%;
-    padding: 1rem;
+    padding: 0 0 2rem;
 }
 
 .benefit-cards {
@@ -83,4 +83,19 @@
 
 .card-desc {
     color: gray;
+}
+
+.logout-button {
+    margin: 0 auto;
+    display: inherit;
+    padding: 1rem;
+    background-color: #ff6600;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 20rem;
+    margin-bottom: 5rem;
 }

@@ -4,7 +4,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    background-color: #eee;
+    background-color: #fafafa;
 }
 
 .login-inner {
@@ -59,6 +59,7 @@
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    outline-color: #ccc;
 }
 
 .login-form input::placeholder {

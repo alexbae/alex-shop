@@ -44,22 +44,24 @@ const MyCardList = ({ user }) => {
 
     return (
         <div>
+            <div>
+                { cards.length > 0 ? (
+                    <div>
+                        <p className="header">Your cards</p>
+                        <ul className="your-cards-box">
+                            {cards.map((card, idx) => (
+                                <li className='card-list' key={idx}>
+                                    {card}
+                                    <button className='remove-button' onClick={(e) => removeCard(e, card)}>remove</button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ) : (
+                    <p className="error-message">Please add your cards</p>
+                )}
+            </div>
             <CardSearch addCards={addCards} />
-            { cards ? (
-                <div>
-                    <p>Your cards</p>
-                    <ul>
-                        {cards.map((card, idx) => (
-                            <li className='card-list' key={idx}>
-                                {card}
-                                <button className='remove-button' onClick={(e) => removeCard(e, card)}>remove</button>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            ) : (
-                <p>Add your cards</p>
-            )}
         </div>
     )
 }

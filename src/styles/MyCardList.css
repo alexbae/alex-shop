@@ -1,13 +1,22 @@
 .card-list {
-    margin: 1rem;
+    margin: 1.5rem;
+}
+
+.your-cards-box {
+    background-color: #fff0e6;
+    padding: 1px 0;
+    margin-top: 1rem;
+    border-radius: 4px;
 }
 
 .remove-button {
     margin-left: 1rem;
-    padding: 0;
-    font-size: 0.8rem;
-    background: none;
+    font-size: 0.7rem;
+    padding: 0 0.5rem;
+    line-height: 1.5rem;
+    background: red;
     border: 0;
-    color: red;
+    color: white;
     cursor: pointer;
+    border-radius: 3px;
 }

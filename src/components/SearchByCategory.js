@@ -10,6 +10,8 @@ const categories = [
     'entertainment',
     'drugstore',
     'bill',
+    'food-delivery',
+    'rideshare',
 ]
 
 const SearchByCategory = ({ searchBy, selected }) => {

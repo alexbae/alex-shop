@@ -49,8 +49,25 @@ const Home = () => {
             return card.benefits.indexOf(value) > -1
         })
 
+        const resultEverythingCards = myCardCollection.filter(card => {
+            if (!card.benefits) return
+            return card.benefits.indexOf("everything") > -1
+        })
+
+        const hasSameCard = () => {
+            const matchName = resultCards.map(card => {
+                return resultEverythingCards.map(c => {
+                    return card.name === c.name
+                })
+            })
+
+            return matchName.reduce((a, c) => a || c[0], false)
+        }
+
+        const mergedCards = hasSameCard() ? resultCards : [...resultCards, ...resultEverythingCards]
+
         setSearchValue(value)
-        setResult(resultCards)
+        setResult(mergedCards)
     }
 
     return (
@@ -68,7 +85,7 @@ const Home = () => {
                                 {card.name}
                             </a>
                             <ul>
-                                {card[searchValue].map((obj, idx) => (
+                                {(card[searchValue] || card['everything']).map((obj, idx) => (
                                     <li className="benefit-card-list" key={idx}>
                                         <a 
                                             className="card-value"

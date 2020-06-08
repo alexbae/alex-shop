@@ -94,7 +94,10 @@ const Home = () => {
                                         >
                                             {obj.value}
                                         </a>
-                                        <span className="card-desc">{obj.desc && obj.desc}</span>
+                                        <div>
+                                            { obj.label && <p className="card-promo">{obj.label}</p>}
+                                            <span className="card-desc">{obj.desc && obj.desc}</span>
+                                        </div>
                                     </li>
                                 ))}
                             </ul>

@@ -6,6 +6,7 @@ import { db } from '../config/fire'
 
 import '../styles/Home.css'
 import SearchByCategory from '../components/SearchByCategory'
+import { removeSameCards } from '../utils/removeSameCards'
 
 const Home = () => {
     const [cards, setCards] = useState([])
@@ -54,20 +55,10 @@ const Home = () => {
             return card.benefits.indexOf("everything") > -1
         })
 
-        const hasSameCard = () => {
-            const matchName = resultCards.map(card => {
-                return resultEverythingCards.map(c => {
-                    return card.name === c.name
-                })
-            })
-
-            return matchName.reduce((a, c) => a || c[0], false)
-        }
-
-        const mergedCards = hasSameCard() ? resultCards : [...resultCards, ...resultEverythingCards]
+        const flatResult = removeSameCards(resultCards, resultEverythingCards)
 
         setSearchValue(value)
-        setResult(mergedCards)
+        setResult(flatResult)
     }
 
     return (

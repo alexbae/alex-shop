@@ -6,6 +6,7 @@ import { db } from '../config/fire'
 
 import '../styles/Home.css'
 import SearchByCategory from '../components/SearchByCategory'
+import CardMoreDetail from '../components/CardMoreDetail'
 import { removeSameCards } from '../utils/removeSameCards'
 
 const Home = () => {
@@ -68,16 +69,40 @@ const Home = () => {
                 {result.map((card, idx) => {
                     return (
                         <div className="card-each-box" key={idx}>
-                            <a 
-                                className="card-name"
-                                target="_blank"
-                                href={card.website}
-                            >
-                                {card.name}
-                            </a>
+                            <div className="card-top">
+                                <a 
+                                    className="card-name"
+                                    target="_blank"
+                                    href={card.website}
+                                >
+                                    {card.name}
+                                </a>
+                            </div>
                             <ul>
-                                {(card[searchValue] || card['everything']).map((obj, idx) => (
-                                    <li className="benefit-card-list" key={idx}>
+                                {(card[searchValue] || card['everything']).map((obj, idx) => {
+                                    if (obj.type === 'benefit') return
+                                    return (
+                                        <li className="benefit-card-list" key={idx}>
+                                            <a 
+                                                className="card-value"
+                                                target="_blank"
+                                                href={card.website}
+                                            >
+                                                {obj.value}
+                                            </a>
+                                            <div>
+                                                { obj.label && <p className="card-promo">{obj.label}</p>}
+                                                <span className="card-desc">{obj.detail && obj.detail}</span>
+                                                {obj.more && <CardMoreDetail copy={obj.more} />}
+                                            </div>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                            {(card[searchValue] || card['everything']).map((obj, idx) => {
+                                if (obj.type !== 'benefit') return
+                                return (
+                                    <li className="benefit-card-list benefit-card-array" key={idx}>
                                         <a 
                                             className="card-value"
                                             target="_blank"
@@ -85,13 +110,14 @@ const Home = () => {
                                         >
                                             {obj.value}
                                         </a>
-                                        <div>
+                                        {/* <div>
                                             { obj.label && <p className="card-promo">{obj.label}</p>}
-                                            <span className="card-desc">{obj.desc && obj.desc}</span>
-                                        </div>
+                                            <span className="card-desc">{obj.detail && obj.detail}</span>
+                                            {obj.more && <CardMoreDetail copy={obj.more} />}
+                                        </div> */}
                                     </li>
-                                ))}
-                            </ul>
+                                )
+                            })}
                         </div>
                     )
                 })}

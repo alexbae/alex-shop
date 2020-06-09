@@ -60,6 +60,7 @@ table {
 	flex-wrap: wrap;
 	padding: 1.5rem 1rem 1.2rem;
 	background-color: white;
+	border-bottom: 1px solid #eee;
 }
 
 .pill {
@@ -82,4 +83,12 @@ table {
 
 .pill:focus {
 	outline: 0;
+}
+
+.small {
+	font-size: 0.8rem;
+}
+
+.link-color {
+	color: #ff8f45;
 }

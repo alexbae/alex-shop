@@ -31,7 +31,7 @@ const CardSearch = ({ addCards }) => {
 
     const collectionArray = Object.keys(collection).map(card => card.toLowerCase())
 
-    const cardList = selectedCollection(collectionArray, splitString(value))
+    const cardList = selectedCollection(collectionArray, splitString(value.toLowerCase()))
 
     const { best, similar } = cardList
 

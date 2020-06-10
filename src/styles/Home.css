@@ -72,22 +72,22 @@
 .benefit-card-list {
     margin: 1rem 0 0;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .benefit-card-array {
     display: inline-block;
 }
 
-.benefit-card-array .card-value {
+/* .benefit-card-array .card-value {
     background-color: #6f90ac;
-}
+} */
 
 .benefit-card-list p {
     margin-top: 0.5rem;
 }
 
-.card-value {
+/* .card-value {
     font-weight: bold;
     padding: 5px 10px;
     background-color: #ff8f45;
@@ -96,7 +96,7 @@
     border-radius: 4px;
     text-decoration: none;
     line-height: 1.2rem;
-}
+} */
 
 .card-promo {
     display: inline-block;
@@ -127,4 +127,12 @@
     font-weight: bold;
     width: calc(100% - 2rem);
     margin: 5rem 1rem;
+}
+
+.more-copy {
+    padding: 1rem;
+    line-height: 1.2rem;
+    background-color: #eee;
+    border-radius: 4px;
+    display: block;
 }

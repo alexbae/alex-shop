@@ -1,0 +1,25 @@
+.card-more-detail {
+    display: block;
+    cursor: pointer;
+}
+
+.card-more-detail.benefit {
+    display: inline-block;
+}
+
+.card-more-detail_value {
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #ff8f45;
+    margin: 1rem 5px 5px 0;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    line-height: 1.2rem;
+    display: inline-block;
+}
+
+.benefit .card-more-detail_value {
+    background-color: #6f90ac;
+    margin-bottom: 5px;
+}

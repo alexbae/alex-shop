@@ -78,44 +78,30 @@ const Home = () => {
                                     {card.name}
                                 </a>
                             </div>
-                            <ul>
+                            <div>
                                 {(card[searchValue] || card['everything']).map((obj, idx) => {
                                     if (obj.type === 'benefit') return
                                     return (
-                                        <li className="benefit-card-list" key={idx}>
-                                            <a 
-                                                className="card-value"
-                                                target="_blank"
-                                                href={card.website}
-                                            >
-                                                {obj.value}
-                                            </a>
-                                            <div>
-                                                { obj.label && <p className="card-promo">{obj.label}</p>}
-                                                <span className="card-desc">{obj.detail && obj.detail}</span>
-                                                {obj.more && <CardMoreDetail copy={obj.more} />}
-                                            </div>
-                                        </li>
+                                        <CardMoreDetail
+                                            copies={[obj.more]}
+                                            label={obj.label && obj.label}
+                                            value={obj.value}
+                                            detail={obj.detail && obj.detail}
+                                            key={idx}
+                                        />
                                     )
                                 })}
-                            </ul>
+                            </div>
                             {(card[searchValue] || card['everything']).map((obj, idx) => {
                                 if (obj.type !== 'benefit') return
                                 return (
-                                    <li className="benefit-card-list benefit-card-array" key={idx}>
-                                        <a 
-                                            className="card-value"
-                                            target="_blank"
-                                            href={card.website}
-                                        >
-                                            {obj.value}
-                                        </a>
-                                        {/* <div>
-                                            { obj.label && <p className="card-promo">{obj.label}</p>}
-                                            <span className="card-desc">{obj.detail && obj.detail}</span>
-                                            {obj.more && <CardMoreDetail copy={obj.more} />}
-                                        </div> */}
-                                    </li>
+                                    <CardMoreDetail
+                                        type={obj.type}
+                                        copies={[obj.detail, obj.more]}
+                                        label={obj.label && obj.label}
+                                        value={obj.value}
+                                        key={idx}
+                                    />
                                 )
                             })}
                         </div>

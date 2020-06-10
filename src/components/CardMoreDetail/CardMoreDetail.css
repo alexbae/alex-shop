@@ -7,6 +7,10 @@
     display: inline-block;
 }
 
+.card-more-detail.benefit:first-child {
+    margin-top: 1rem;
+}
+
 .card-more-detail_value {
     font-weight: bold;
     padding: 5px 10px;
@@ -22,4 +26,10 @@
 .benefit .card-more-detail_value {
     background-color: #6f90ac;
     margin-bottom: 5px;
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+.benefit-collect .card-more-detail_value {
+    margin-top: 5px;
 }

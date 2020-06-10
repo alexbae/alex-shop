@@ -92,18 +92,20 @@ const Home = () => {
                                     )
                                 })}
                             </div>
-                            {(card[searchValue] || card['everything']).map((obj, idx) => {
-                                if (obj.type !== 'benefit') return
-                                return (
-                                    <CardMoreDetail
-                                        type={obj.type}
-                                        copies={[obj.detail, obj.more]}
-                                        label={obj.label && obj.label}
-                                        value={obj.value}
-                                        key={idx}
-                                    />
-                                )
-                            })}
+                            <div className="benefit-collect">
+                                {(card[searchValue] || card['everything']).map((obj, idx) => {
+                                    if (obj.type !== 'benefit') return
+                                    return (
+                                        <CardMoreDetail
+                                            type={obj.type}
+                                            copies={[obj.detail, obj.more]}
+                                            label={obj.label && obj.label}
+                                            value={obj.value}
+                                            key={idx}
+                                        />
+                                    )
+                                })}
+                            </div>
                         </div>
                     )
                 })}

@@ -15,7 +15,7 @@ const MyCards = () => {
         fire.auth().signOut()
 
         setTimeout(() => {
-            history.push('/login')
+            history.push('/')
         }, 300)
     }
 

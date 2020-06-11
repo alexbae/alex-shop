@@ -47,12 +47,12 @@ const Home = () => {
 
     const searchBy = value => {
         const resultCards = myCardCollection.filter(card => {
-            if (!card.benefits) return
+            if (!card.benefits) return null
             return card.benefits.indexOf(value) > -1
         })
 
         const resultEverythingCards = myCardCollection.filter(card => {
-            if (!card.benefits) return
+            if (!card.benefits) return null
             return card.benefits.indexOf("everything") > -1
         })
 
@@ -73,6 +73,7 @@ const Home = () => {
                                 <a 
                                     className="card-name"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     href={card.website}
                                 >
                                     {card.name}
@@ -80,7 +81,7 @@ const Home = () => {
                             </div>
                             <div>
                                 {(card[searchValue] || card['everything']).map((obj, idx) => {
-                                    if (obj.type === 'benefit') return
+                                    if (obj.type === 'benefit') return null
                                     return (
                                         <CardMoreDetail
                                             copies={[obj.more]}
@@ -94,7 +95,7 @@ const Home = () => {
                             </div>
                             <div className="benefit-collect">
                                 {(card[searchValue] || card['everything']).map((obj, idx) => {
-                                    if (obj.type !== 'benefit') return
+                                    if (obj.type !== 'benefit') return null
                                     return (
                                         <CardMoreDetail
                                             type={obj.type}

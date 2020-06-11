@@ -8,7 +8,7 @@ const LoginPage = () => {
     const user = useContext(UserContext)
 
     if (user) {
-        history.push('/')
+        history.push('/home')
     }
     
     return <Login />

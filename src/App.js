@@ -25,9 +25,9 @@ function App() {
 		<UserContext.Provider value={user}>
 			<Router>
 				<Switch>
-					<Route exact path={'/'} component={Home} />
+					<Route exact path={'/home'} component={Home} />
 					<Route exact path={'/settings'} component={MyCards} />
-					<Route exact path={'/login'} component={Login} />
+					<Route exact path={'/'} component={Login} />
 				</Switch>
 			</Router>
 		</UserContext.Provider>

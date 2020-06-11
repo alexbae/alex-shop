@@ -66,7 +66,7 @@ const Home = () => {
 
     const hasCards = localStorage.getItem('hasCards')
 
-    if (hasCards === "false" || hasCards == null) {
+    if (hasCards == null || hasCards === "false") {
         history.push('/settings')
     }
 

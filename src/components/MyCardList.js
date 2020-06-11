@@ -43,10 +43,10 @@ const MyCardList = ({ user }) => {
         setCards(removedCard)
     }
 
-    if (cards.length > 0) {
-        localStorage.setItem('hasCards', "true")
-    } else {
+    if (cards.length <= 0) {
         localStorage.setItem('hasCards', "false")
+    } else {
+        localStorage.setItem('hasCards', "true")
     }
 
     return (

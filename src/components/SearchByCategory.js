@@ -15,6 +15,15 @@ const categories = [
 ]
 
 const SearchByCategory = ({ searchBy, selected }) => {
+    let selectedButton = selected
+
+    if (!selected) {
+        selectedButton = categories[0]
+        setTimeout(() => {
+            searchBy(selectedButton)
+        }, 600)
+    }
+
     return (
         <div className="pill-container">
             {categories.map(category => {
@@ -22,7 +31,7 @@ const SearchByCategory = ({ searchBy, selected }) => {
                     <button 
                         key={`pill-${category}`} 
                         onClick={() => searchBy(category)}
-                        className={`pill ${selected === category ? 'selected' : ''}`}
+                        className={`pill ${selectedButton === category ? 'selected' : ''}`}
                     >
                         {category}
                     </button>

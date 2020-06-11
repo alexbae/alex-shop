@@ -8,8 +8,10 @@ import '../styles/Home.css'
 import SearchByCategory from '../components/SearchByCategory'
 import CardMoreDetail from '../components/CardMoreDetail'
 import { removeSameCards } from '../utils/removeSameCards'
+import { useHistory } from 'react-router-dom'
 
 const Home = () => {
+    const history = useHistory()
     const [cards, setCards] = useState([])
     const [result, setResult] = useState([])
     const [searchValue, setSearchValue] = useState('')
@@ -62,10 +64,26 @@ const Home = () => {
         setResult(flatResult)
     }
 
+    const hasCards = localStorage.getItem('hasCards')
+
+    if (hasCards === "false" || hasCards == null) {
+        history.push('/settings')
+    }
+
+    const noResult = result.length <= 0
+
     return (
         <Main user={user}>
             <SearchByCategory searchBy={(category) => searchBy(category)} selected={searchValue} />
             <div className="benefit-cards-wrapper">
+                {noResult && (
+                    <div className="card-each-box">
+                        <p>Sorry, we couldn't find any cards mathing your search.</p>
+                        <p>Recommend credit cards for you.</p>
+                        <div>American Express Blue Sky Credit Cards</div>
+                        <div>Benefit ... </div>
+                    </div>
+                )}
                 {result.map((card, idx) => {
                     return (
                         <div className="card-each-box" key={idx}>
@@ -79,6 +97,7 @@ const Home = () => {
                                     {card.name}
                                 </a>
                             </div>
+                            
                             <div>
                                 {(card[searchValue] || card['everything']).map((obj, idx) => {
                                     if (obj.type === 'benefit') return null

@@ -3,6 +3,7 @@ import { db } from '../config/fire'
 import CardSearch from './CardSearch'
 
 import '../styles/MyCardList.css'
+import { Link } from 'react-router-dom'
 
 const MyCardList = ({ user }) => {
     const [cards, setCards] = useState([])
@@ -42,6 +43,12 @@ const MyCardList = ({ user }) => {
         setCards(removedCard)
     }
 
+    if (cards.length > 0) {
+        localStorage.setItem('hasCards', "true")
+    } else {
+        localStorage.setItem('hasCards', "false")
+    }
+
     return (
         <div className="settings-wrapper">
             <CardSearch addCards={addCards} />
@@ -57,6 +64,7 @@ const MyCardList = ({ user }) => {
                                 </li>
                             ))}
                         </ul>
+                        <Link className="cta-button" to="/home">Start search your card benefit</Link>
                     </div>
                 ) : (
                     <p className="error-message">Please add your cards</p>

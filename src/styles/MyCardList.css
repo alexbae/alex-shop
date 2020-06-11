@@ -27,3 +27,16 @@
     cursor: pointer;
     border-radius: 3px;
 }
+
+.cta-button {
+    margin-top: 1rem;
+    width: 100%;
+    display: block;
+    background-color: #ff6600;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}

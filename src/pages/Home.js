@@ -9,6 +9,7 @@ import SearchByCategory from '../components/SearchByCategory'
 import CardMoreDetail from '../components/CardMoreDetail'
 import { removeSameCards } from '../utils/removeSameCards'
 import { useHistory } from 'react-router-dom'
+import { timeConverter, today } from '../utils/timeConverter'
 
 const Home = () => {
     const history = useHistory()
@@ -100,11 +101,14 @@ const Home = () => {
                             
                             <div>
                                 {(card[searchValue] || card['everything']).map((obj, idx) => {
-                                    if (obj.type === 'benefit') return null
+                                    const endDate = timeConverter(obj.endDate)
+                                    const newLabel = today - endDate < 604800000 && 'New'
+                                    
+                                    if (obj.type === 'benefit' || endDate < today) return null
                                     return (
                                         <CardMoreDetail
                                             copies={[obj.more]}
-                                            label={obj.label && obj.label}
+                                            label={obj.label || newLabel}
                                             value={obj.value}
                                             detail={obj.detail && obj.detail}
                                             key={idx}
